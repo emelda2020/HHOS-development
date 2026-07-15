@@ -117,7 +117,7 @@ export default function FollowUpActionForm({
       <h2>Referral and follow-up</h2>
 
       <label>
-        Action
+        Choose an action
         <select value={actionType} onChange={(e) => setActionType(e.target.value)}>
           <option value="in_person_visit">Request in-person visit</option>
           <option value="specialist_referral">Refer to specialist</option>
@@ -140,13 +140,18 @@ export default function FollowUpActionForm({
       </label>
 
       <label>
-        Title
+        Recommendation title
         <input value={title} onChange={(e) => setTitle(e.target.value)} required />
       </label>
 
       <label>
-        Instructions
-        <textarea rows={5} value={instructions} onChange={(e) => setInstructions(e.target.value)} required />
+        Instructions for the patient
+        <textarea
+          rows={5}
+          value={instructions}
+          onChange={(e) => setInstructions(e.target.value)}
+          required
+        />
       </label>
 
       <label>
@@ -168,9 +173,13 @@ export default function FollowUpActionForm({
               <option value="neurology">Neurology</option>
             </select>
           </label>
+
           <label>
             Suggested doctor or facility
-            <input value={destinationName} onChange={(e) => setDestinationName(e.target.value)} />
+            <input
+              value={destinationName}
+              onChange={(e) => setDestinationName(e.target.value)}
+            />
           </label>
         </>
       )}
@@ -180,13 +189,6 @@ export default function FollowUpActionForm({
       </button>
 
       {message && <p className="seedMessage">{message}</p>}
-
-      {priority === "emergency" && (
-        <p className="urgentNotice">
-          In production, emergency instructions must direct patients immediately
-          to local emergency services.
-        </p>
-      )}
     </form>
   );
 }

@@ -1,15 +1,20 @@
-# HHOS Stage 5B — Referral and Follow-Up Workflow
+# Stage 5C Referral Page Fix
 
-This is a smaller update package containing only the new Stage 5 files.
+Upload these folders to the existing hhos-development repository:
 
-Upload the folders and files to the matching locations in your existing
-hhos-development repository.
+- app
+- components
 
-Then follow STAGE5_INTEGRATION.txt for the three small edits required in:
-- components/AppShell.tsx
-- app/clinician/reviews/[id]/page.tsx
-- app/globals.css
+Replace files when GitHub asks.
 
 Commit message:
 
-Add Stage 5 referral and follow-up workflow
+Show in-person visit and specialist referral options
+
+After Vercel says Ready:
+
+1. Sign in as clinician.
+2. Open Assigned cases.
+3. Open the patient case.
+4. Scroll below Physician interpretation.
+5. The Referral and follow-up form will appear.

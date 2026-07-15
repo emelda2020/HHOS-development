@@ -48,6 +48,7 @@ export default function FollowUpResponseForm({
 
     setStatusMessage(error ? error.message : "Your response was recorded.");
     setBusy(false);
+
     if (!error) router.refresh();
   }
 
@@ -70,11 +71,20 @@ export default function FollowUpResponseForm({
         <>
           <label>
             Appointment date
-            <input type="datetime-local" value={appointmentDate} onChange={(e) => setAppointmentDate(e.target.value)} required />
+            <input
+              type="datetime-local"
+              value={appointmentDate}
+              onChange={(e) => setAppointmentDate(e.target.value)}
+              required
+            />
           </label>
+
           <label>
             Doctor or facility
-            <input value={destinationName} onChange={(e) => setDestinationName(e.target.value)} />
+            <input
+              value={destinationName}
+              onChange={(e) => setDestinationName(e.target.value)}
+            />
           </label>
         </>
       )}

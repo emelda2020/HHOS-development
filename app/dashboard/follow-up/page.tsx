@@ -16,7 +16,6 @@ export default async function FollowUpPage() {
       referrals (
         referral_specialty,
         referral_reason,
-        recommended_timeframe,
         destination_name,
         referral_status
       ),
@@ -35,64 +34,42 @@ export default async function FollowUpPage() {
     <section className="dataPanel full">
       <p className="eyebrow">FOLLOW-UP & REFERRALS</p>
       <h1>Your recommended next steps</h1>
-      <p className="lead">
-        Review each physician recommendation and record what action you have taken.
-      </p>
 
-      <div className="followUpList">
-        {(actions ?? []).map((action) => {
-          const referral = Array.isArray(action.referrals)
-            ? action.referrals[0]
-            : action.referrals;
-          const responses = Array.isArray(action.follow_up_responses)
-            ? action.follow_up_responses
-            : [];
+      {(actions ?? []).map((action) => {
+        const referral = Array.isArray(action.referrals)
+          ? action.referrals[0]
+          : action.referrals;
 
-          return (
-            <article className={`followUpCard priority-${action.priority}`} key={action.id}>
-              <div className="panelHeading">
-                <div>
-                  <span className="tag">{action.priority}</span>
-                  <h3>{action.title}</h3>
-                </div>
-                <strong>{action.action_status}</strong>
-              </div>
+        return (
+          <article className="reviewResultCard" key={action.id}>
+            <span className="tag">{action.priority}</span>
+            <h3>{action.title}</h3>
+            <p>{action.instructions}</p>
+            <small>Status: {action.action_status}</small>
 
-              <p>{action.instructions}</p>
-
-              {action.due_at && (
-                <small>Recommended by: {new Date(action.due_at).toLocaleString()}</small>
-              )}
-
-              {referral && (
-                <div className="referralBox">
-                  <strong>Specialty: {referral.referral_specialty.replaceAll("_", " ")}</strong>
-                  <span>{referral.destination_name ?? "Destination not yet selected"}</span>
-                  <small>{referral.referral_reason}</small>
-                </div>
-              )}
-
-              {responses.length > 0 && (
-                <div className="responseHistory">
-                  <strong>Your latest response</strong>
-                  <span>{responses[responses.length - 1].response_type.replaceAll("_", " ")}</span>
-                </div>
-              )}
-
-              <FollowUpResponseForm actionId={action.id} currentStatus={action.action_status} />
-
-              {action.priority === "emergency" && (
-                <p className="urgentNotice">
-                  Do not wait for an online response during an emergency. Contact
-                  your local emergency service immediately.
+            {referral && (
+              <div className="releasedReview">
+                <h4>Specialist referral</h4>
+                <p>
+                  {referral.referral_specialty.replaceAll("_", " ")}
+                  {referral.destination_name
+                    ? ` · ${referral.destination_name}`
+                    : ""}
                 </p>
-              )}
-            </article>
-          );
-        })}
+              </div>
+            )}
 
-        {!actions?.length && <p className="empty">No follow-up recommendations yet.</p>}
-      </div>
+            <FollowUpResponseForm
+              actionId={action.id}
+              currentStatus={action.action_status}
+            />
+          </article>
+        );
+      })}
+
+      {!actions?.length && (
+        <p className="empty">No follow-up recommendations yet.</p>
+      )}
     </section>
   );
 }
