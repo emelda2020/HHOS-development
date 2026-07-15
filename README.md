@@ -1,20 +1,48 @@
-# Stage 5C Referral Page Fix
+# HHOS Stage 6B — Clinician Sign-Up and Verification UI
 
-Upload these folders to the existing hhos-development repository:
+## Step 1: Run the SQL
+
+Run `stage6b-setup.sql` in Supabase SQL Editor.
+
+Expected result:
+
+Success. No rows returned
+
+## Step 2: Upload the app and components folders
+
+Upload these folders to the existing `hhos-development` repository:
 
 - app
 - components
 
-Replace files when GitHub asks.
+Replace older files when GitHub asks.
 
-Commit message:
+## Step 3: Add the CSS
 
-Show in-person visit and specialist referral options
+Copy everything inside `STAGE6B_CSS.txt` and paste it at the bottom of:
 
-After Vercel says Ready:
+app/globals.css
 
-1. Sign in as clinician.
-2. Open Assigned cases.
-3. Open the patient case.
-4. Scroll below Physician interpretation.
-5. The Referral and follow-up form will appear.
+## Step 4: Commit
+
+Use:
+
+Add clinician signup and verification routing
+
+Wait for Vercel to show Ready.
+
+## Test using a NEW clinician email
+
+Do not reuse the existing verified clinician test account.
+
+1. Open `/signup`.
+2. Select Clinician account.
+3. Create an account with a new test email.
+4. Confirm the email if Supabase requests confirmation.
+5. Sign in.
+6. Complete the professional application with fabricated information.
+7. Submit it.
+8. Confirm the pending-verification page appears.
+9. Confirm the new clinician cannot open `/clinician`.
+
+The existing verified clinician should continue to open the clinician dashboard.
