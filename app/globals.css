@@ -340,4 +340,89 @@ input {
   .caseFacts {
     grid-template-columns: 1fr;
   }
+}.accountChoiceGrid {
+  display: grid;
+  gap: 14px;
+  margin: 24px 0;
+}
+
+.accountChoiceCard {
+  display: grid;
+  gap: 7px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  text-decoration: none;
+  background: #f9fbfb;
+}
+
+.accountChoiceCard strong {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.accountChoiceCard span {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.accountChoiceCard:hover {
+  border-color: var(--brand);
+}
+
+.authFootnote {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.checkboxLabel {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.checkboxLabel input {
+  width: auto !important;
+  margin-top: 3px;
+}
+
+.statusCard {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  margin: 20px 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f9fbfb;
+}
+
+.statusCard strong {
+  font-size: 11px;
+}
+
+.statusCard span {
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.authLinks {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 10px;
+  font-size: 10px;
+}
+
+@media (max-width: 700px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
 }
