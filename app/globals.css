@@ -61,3 +61,112 @@ input {
   .grid { grid-template-columns: 1fr; }
   .actions, .authLinks { flex-direction: column; }
 }
+
+.dataGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+.dataPanel, .compactForm, .seedBox {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+}
+.dataPanel.full { width: 100%; }
+.panelHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.panelHeading h2, .dataPanel h2 { font-size: 17px; }
+.panelHeading a { color: var(--brand); font-size: 10px; font-weight: 800; }
+.recordRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+.recordRow:last-child { border-bottom: 0; }
+.recordRow strong, .recordRow small { display: block; }
+.recordRow strong { font-size: 11px; text-transform: capitalize; }
+.recordRow small { color: var(--muted); font-size: 9px; margin-top: 4px; }
+.recordRow b { font-size: 11px; text-transform: capitalize; }
+.empty { color: var(--muted); font-size: 10px; }
+.seedBox {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: center;
+}
+.seedBox strong { font-size: 12px; }
+.seedBox p { color: var(--muted); font-size: 10px; margin: 5px 0 0; }
+.seedMessage { grid-column: 1 / -1; color: var(--brand); font-size: 10px !important; }
+.pageLayout {
+  display: grid;
+  grid-template-columns: minmax(0,1.5fr) minmax(260px,.7fr);
+  gap: 18px;
+}
+.compactForm { display: grid; gap: 12px; align-self: start; }
+.compactForm h3 { margin: 0; }
+.compactForm p { color: var(--muted); font-size: 10px; }
+.compactForm select {
+  width: 100%;
+  display: block;
+  margin-top: 7px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: white;
+}
+.tableList { margin-top: 20px; }
+.tableRow {
+  display: grid;
+  grid-template-columns: 1.2fr .6fr 1fr .5fr;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 10px;
+}
+.tableRow strong, .tableRow small { display: block; }
+.tableRow small { color: var(--muted); margin-top: 4px; }
+.timelineCard {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.timelineCard time { color: var(--muted); font-size: 10px; }
+.timelineCard h3 { margin: 8px 0 5px; font-size: 13px; }
+.timelineCard p, .timelineCard small { color: var(--muted); font-size: 10px; }
+.tag {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: #e5f3f0;
+  color: var(--brand);
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+.connectionCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+}
+.connectionCard h3 { margin: 0 0 5px; font-size: 12px; }
+.connectionCard p, .connectionCard small { margin: 0; color: var(--muted); font-size: 9px; }
+
+@media (max-width: 850px) {
+  .dataGrid, .pageLayout { grid-template-columns: 1fr; }
+  .tableRow { grid-template-columns: 1fr 1fr; }
+  .timelineCard { grid-template-columns: 1fr; }
+}

@@ -1,42 +1,38 @@
-# HHOS Stage 2: Real Accounts with Supabase
+# HHOS Stage 3 — Patient Data Foundation
 
-## What this version adds
+This version connects the website to:
 
-- Real account creation
-- Email confirmation
-- Real login
-- Forgot-password email
-- Password update
-- Protected dashboard
-- Profile editing
-- Consent preference controls
-- Supabase session cookies
-- Queries compatible with Row Level Security
+- health_observations
+- device_connections
+- timeline_events
+- care_plan_items
+- consent_history
+- audit_events
 
-## Upload instructions
+## Upload
 
-Upload every file and folder in this package to your existing
+Upload every file and folder in this package to the existing
 `hhos-development` GitHub repository.
 
-Choose to replace files when GitHub asks.
+Replace older files when asked.
 
 Commit message:
 
-Add Supabase authentication and profile controls
+Add Stage 3 patient data foundation
 
 Vercel should redeploy automatically.
 
 ## Test
 
-1. Open the Vercel website.
-2. Click Create account.
-3. Use a test email address you control.
-4. Use a password of at least 12 characters.
-5. Open the confirmation email.
-6. Click the confirmation link.
-7. Sign in.
-8. Open Profile & Consent.
-9. Save a name, country, and one privacy choice.
-10. Sign out and sign in again.
+1. Sign in with your test account.
+2. Open Overview.
+3. Click Create simulated data.
+4. Confirm that observations, connections, timeline events, and care-plan items appear.
+5. Open Observations.
+6. Add one test observation.
+7. Open Profile & Consent.
+8. Change one privacy choice and save.
+9. Confirm that a consent-history record appears.
+10. Sign out and sign back in.
 
-Do not enter real patient or medical information.
+Do not enter real patient or medical data.

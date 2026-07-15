@@ -19,6 +19,10 @@ export default function AppShell({ children }: { children: ReactNode }) {
         <Link href="/dashboard" className="brand light">HHOS</Link>
         <nav>
           <Link href="/dashboard">Overview</Link>
+          <Link href="/dashboard/observations">Observations</Link>
+          <Link href="/dashboard/timeline">Timeline</Link>
+          <Link href="/dashboard/connections">Connections</Link>
+          <Link href="/dashboard/care-plan">Care Plan</Link>
           <Link href="/profile">Profile & Consent</Link>
         </nav>
         <button onClick={logout}>Sign out</button>

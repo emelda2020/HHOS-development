@@ -1,37 +1,34 @@
-import { timelineEvents } from "@/lib/demo-data";
+import { createClient } from "@/lib/supabase/server";
+import { redirect } from "next/navigation";
 
-export default function TimelinePage() {
+export default async function TimelinePage() {
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getClaims();
+  const userId = data?.claims?.sub;
+  if (!userId) redirect("/login");
+
+  const { data: events } = await supabase
+    .from("timeline_events")
+    .select("*")
+    .eq("user_id", userId)
+    .order("event_at", { ascending: false });
+
   return (
-    <section className="pagePanel">
-      <div className="pageHeading">
-        <p className="eyebrow">LONGITUDINAL RECORD</p>
-        <h2>Health timeline</h2>
-        <p>
-          A unified demonstration of wearable, home-device, laboratory, and
-          care-plan information.
-        </p>
-      </div>
-
-      <div className="filterRow">
-        <button className="filter active">All events</button>
-        <button className="filter">Measurements</button>
-        <button className="filter">Laboratory</button>
-        <button className="filter">Care plan</button>
-      </div>
-
-      <div className="timelineList">
-        {timelineEvents.map((event) => (
-          <article className="timelineEvent" key={`${event.date}-${event.time}-${event.title}`}>
-            <div className="timelineDate"><strong>{event.date}</strong><small>{event.time}</small></div>
-            <i />
-            <div>
-              <span className="eventType">{event.type}</span>
-              <h3>{event.title}</h3>
-              <p>{event.detail}</p>
-            </div>
-          </article>
-        ))}
-      </div>
+    <section className="dataPanel full">
+      <p className="eyebrow">LONGITUDINAL RECORD</p>
+      <h1>Health timeline</h1>
+      {(events ?? []).map((event) => (
+        <article className="timelineCard" key={event.id}>
+          <time>{new Date(event.event_at).toLocaleString()}</time>
+          <div>
+            <span className="tag">{event.event_type}</span>
+            <h3>{event.title}</h3>
+            <p>{event.description}</p>
+            <small>Source: {event.source_name ?? event.source_type}</small>
+          </div>
+        </article>
+      ))}
+      {!events?.length ? <p className="empty">No timeline events yet.</p> : null}
     </section>
   );
 }
