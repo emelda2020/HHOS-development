@@ -1,5 +1,4 @@
 "use client";
-
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -20,22 +19,23 @@ export default function AuthForm({ mode }: { mode: Mode }) {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setBusy(true);
-    setError("");
-    setStatus("");
-
+    setBusy(true); setError(""); setStatus("");
     try {
       if (mode === "login") {
         const result = await supabase.auth.signInWithPassword({ email, password });
         if (result.error) throw result.error;
-        router.push("/dashboard");
+        const userId = result.data.user?.id;
+        if (!userId) throw new Error("Unable to identify this account.");
+        const { data: profile, error: profileError } = await supabase
+          .from("profiles").select("role").eq("id", userId).single();
+        if (profileError) throw profileError;
+        router.push(profile?.role === "clinician" ? "/clinician" : "/dashboard");
         router.refresh();
       }
 
       if (mode === "signup") {
         if (password.length < 12) throw new Error("Use at least 12 characters.");
         if (password !== confirm) throw new Error("The passwords do not match.");
-
         const result = await supabase.auth.signUp({
           email,
           password,
@@ -59,7 +59,6 @@ export default function AuthForm({ mode }: { mode: Mode }) {
       if (mode === "update") {
         if (password.length < 12) throw new Error("Use at least 12 characters.");
         if (password !== confirm) throw new Error("The passwords do not match.");
-
         const result = await supabase.auth.updateUser({ password });
         if (result.error) throw result.error;
         setStatus("Password updated.");
@@ -84,50 +83,26 @@ export default function AuthForm({ mode }: { mode: Mode }) {
       <Link href="/" className="brand">HHOS</Link>
       <p className="eyebrow">SECURE ACCESS</p>
       <h1>{title}</h1>
-
       <form onSubmit={submit} className="form">
         {mode === "signup" && (
-          <label>
-            Full name
-            <input value={fullName} onChange={(e) => setFullName(e.target.value)} required />
-          </label>
+          <label>Full name<input value={fullName} onChange={(e)=>setFullName(e.target.value)} required /></label>
         )}
-
         {mode !== "update" && (
-          <label>
-            Email address
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          </label>
+          <label>Email address<input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} required /></label>
         )}
-
         {(mode === "login" || mode === "signup" || mode === "update") && (
-          <label>
-            Password
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          </label>
+          <label>Password<input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} required /></label>
         )}
-
         {(mode === "signup" || mode === "update") && (
-          <label>
-            Confirm password
-            <input type="password" value={confirm} onChange={(e) => setConfirm(e.target.value)} required />
-          </label>
+          <label>Confirm password<input type="password" value={confirm} onChange={(e)=>setConfirm(e.target.value)} required /></label>
         )}
-
         {error && <p className="error">{error}</p>}
         {status && <p className="success">{status}</p>}
-
-        <button className="primary" disabled={busy}>
-          {busy ? "Please wait..." : title}
-        </button>
+        <button className="primary" disabled={busy}>{busy ? "Please wait..." : title}</button>
       </form>
-
       <div className="authLinks">
         {mode === "login" ? (
-          <>
-            <Link href="/forgot-password">Forgot password?</Link>
-            <Link href="/signup">Create account</Link>
-          </>
+          <><Link href="/forgot-password">Forgot password?</Link><Link href="/signup">Create account</Link></>
         ) : (
           <Link href="/login">Back to sign in</Link>
         )}

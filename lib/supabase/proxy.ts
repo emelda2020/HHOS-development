@@ -9,13 +9,9 @@ export async function updateSession(request: NextRequest) {
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,
     {
       cookies: {
-        getAll() {
-          return request.cookies.getAll();
-        },
+        getAll() { return request.cookies.getAll(); },
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value }) =>
-            request.cookies.set(name, value)
-          );
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
           response = NextResponse.next({ request });
           cookiesToSet.forEach(({ name, value, options }) =>
             response.cookies.set(name, value, options)
@@ -26,28 +22,16 @@ export async function updateSession(request: NextRequest) {
   );
 
   const { data } = await supabase.auth.getClaims();
-  const claims = data?.claims;
   const pathname = request.nextUrl.pathname;
-
   const protectedRoute =
     pathname.startsWith("/dashboard") ||
     pathname.startsWith("/profile") ||
+    pathname.startsWith("/clinician") ||
     pathname.startsWith("/update-password");
 
-  const authRoute =
-    pathname === "/login" ||
-    pathname === "/signup" ||
-    pathname === "/forgot-password";
-
-  if (protectedRoute && !claims) {
+  if (protectedRoute && !data?.claims) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
-    return NextResponse.redirect(url);
-  }
-
-  if (authRoute && claims) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/dashboard";
     return NextResponse.redirect(url);
   }
 
