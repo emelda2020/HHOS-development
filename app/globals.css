@@ -1365,4 +1365,513 @@ input {
     transition: none !important;
     animation: none !important;
   }
+}/* =========================================================
+   HHOS COLOURFUL LOGIN PAGE
+   Calm Intelligence
+   ========================================================= */
+
+.hhosLoginPage {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(460px, 1.08fr) minmax(440px, 0.92fr);
+  background: #f7f9fc;
+}
+
+.hhosLoginBrandPanel {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 16% 15%, rgba(0, 184, 217, 0.22), transparent 24%),
+    radial-gradient(circle at 80% 18%, rgba(0, 166, 118, 0.2), transparent 24%),
+    linear-gradient(150deg, #0a365d 0%, #0f4c81 48%, #0b416f 100%);
+}
+
+.hhosLoginBrandPanel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.34;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+.hhosLoginBrandPanel::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -180px;
+  bottom: -180px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 48px rgba(255, 255, 255, 0.025),
+    0 0 0 96px rgba(255, 255, 255, 0.02);
+}
+
+.hhosLoginBrandGlow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.hhosGlowOne {
+  width: 230px;
+  height: 230px;
+  top: 14%;
+  right: 9%;
+  background: rgba(0, 184, 217, 0.16);
+}
+
+.hhosGlowTwo {
+  width: 180px;
+  height: 180px;
+  left: 5%;
+  bottom: 11%;
+  background: rgba(0, 166, 118, 0.12);
+}
+
+.hhosGlowThree {
+  width: 100px;
+  height: 100px;
+  right: 30%;
+  bottom: 28%;
+  background: rgba(244, 180, 0, 0.09);
+}
+
+.hhosLoginBrandContent {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(34px, 5vw, 72px);
+}
+
+.hhosLoginLogoRow,
+.hhosLoginMobileBrand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.hhosLoginLogoMark {
+  width: 46px;
+  height: 46px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+}
+
+.hhosLoginLogoMark::before,
+.hhosLoginLogoMark::after,
+.hhosLoginLogoMark span {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.hhosLoginLogoMark::before {
+  width: 25px;
+  height: 8px;
+}
+
+.hhosLoginLogoMark::after {
+  width: 8px;
+  height: 25px;
+}
+
+.hhosLoginLogoMark span {
+  width: 13px;
+  height: 13px;
+  z-index: 1;
+  background: #00a676;
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+}
+
+.hhosLoginLogoRow strong {
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.hhosLoginLogoRow small {
+  display: block;
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+}
+
+.hhosLoginHeroCopy {
+  max-width: 650px;
+  margin: auto 0;
+  padding: 70px 0;
+}
+
+.hhosLoginEyebrow {
+  margin: 0;
+  color: #6ae4ca;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.hhosLoginHeroCopy h1 {
+  max-width: 690px;
+  margin: 19px 0 22px;
+  color: #ffffff;
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1.04;
+  letter-spacing: -0.055em;
+}
+
+.hhosLoginHeroCopy > p:last-child {
+  max-width: 600px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: clamp(13px, 1.3vw, 17px);
+  line-height: 1.75;
+}
+
+.hhosLoginSignalGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.hhosLoginSignalGrid article {
+  min-height: 128px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+}
+
+.hhosSignalIcon {
+  min-width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  color: #082f50;
+  border-radius: 10px;
+  background: #ffffff;
+  font-size: 8px;
+  font-weight: 850;
+}
+
+.hhosSignalGreen {
+  color: #006d51;
+  background: #c9f3e7;
+}
+
+.hhosSignalCyan {
+  color: #00657a;
+  background: #c8f4fb;
+}
+
+.hhosSignalAmber {
+  color: #8d6500;
+  background: #fff0b9;
+}
+
+.hhosLoginSignalGrid strong {
+  display: block;
+  color: #ffffff;
+  font-size: 10px;
+}
+
+.hhosLoginSignalGrid small {
+  display: block;
+  margin-top: 7px;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 8px;
+  line-height: 1.55;
+}
+
+.hhosLoginTrustBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 28px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 8px;
+}
+
+.hhosLoginTrustBar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hhosTrustDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00d7a0;
+  box-shadow: 0 0 0 4px rgba(0, 215, 160, 0.11);
+}
+
+.hhosLoginFormPanel {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(28px, 5vw, 72px);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0, 184, 217, 0.055), transparent 28%),
+    radial-gradient(circle at 0% 100%, rgba(0, 166, 118, 0.045), transparent 30%),
+    #f7f9fc;
+}
+
+.hhosLoginFormWrap {
+  width: 100%;
+  max-width: 470px;
+}
+
+.hhosLoginMobileBrand {
+  display: none;
+  margin-bottom: 35px;
+  color: #0f4c81;
+}
+
+.hhosLoginMobileBrand .hhosLoginLogoMark {
+  background: #0f4c81;
+}
+
+.hhosLoginMobileBrand strong {
+  font-size: 22px;
+  letter-spacing: -0.04em;
+}
+
+.hhosLoginWelcome {
+  margin-bottom: 30px;
+}
+
+.hhosLoginWelcome h2 {
+  margin: 12px 0 11px;
+  color: #1a1a1a;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.13;
+  letter-spacing: -0.04em;
+}
+
+.hhosLoginWelcome > p:last-child {
+  margin: 0;
+  color: #5f6368;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.hhosLoginFormWrap .authForm {
+  display: grid;
+  gap: 17px;
+  padding: 27px;
+  border: 1px solid #e2e9ef;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: 0 20px 55px rgba(15, 76, 129, 0.09);
+  backdrop-filter: blur(12px);
+}
+
+.hhosLoginFormWrap .authForm label {
+  color: #263746;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.hhosLoginFormWrap .authForm input {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 8px;
+  padding: 0 14px;
+  color: #1a1a1a;
+  border: 1px solid #d7e0e8;
+  border-radius: 12px;
+  outline: none;
+  background: #fbfcfd;
+  font-size: 11px;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    background 160ms ease;
+}
+
+.hhosLoginFormWrap .authForm input:focus {
+  border-color: #00b8d9;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 184, 217, 0.1);
+}
+
+.hhosLoginFormWrap .authForm .primary {
+  min-height: 49px;
+  border: 0;
+  border-radius: 12px;
+  color: #ffffff;
+  background: linear-gradient(100deg, #0f4c81 0%, #12639f 62%, #00a676 140%);
+  box-shadow: 0 10px 24px rgba(15, 76, 129, 0.19);
+  font-size: 11px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.hhosLoginFormWrap .authForm .primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 13px 28px rgba(15, 76, 129, 0.23);
+}
+
+.hhosLoginFormWrap .authForm .primary:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+
+.hhosLoginFormWrap .authLinks {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 2px;
+}
+
+.hhosLoginFormWrap .authLinks a,
+.hhosLoginFormWrap .authForm > a {
+  color: #0f4c81;
+  font-size: 9px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hhosLoginFormWrap .authLinks a:hover,
+.hhosLoginFormWrap .authForm > a:hover {
+  color: #00a676;
+}
+
+.hhosLoginFormWrap .seedMessage {
+  margin: 0;
+  padding: 11px 13px;
+  border: 1px solid #d9e8e3;
+  border-radius: 10px;
+  color: #325247;
+  background: #f1faf7;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.hhosLoginSecurityNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 19px;
+  padding: 15px 16px;
+  border: 1px solid #dbe8e4;
+  border-radius: 14px;
+  background: rgba(239, 249, 245, 0.78);
+}
+
+.hhosLoginSecurityIcon {
+  width: 29px;
+  height: 29px;
+  flex: 0 0 29px;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  border-radius: 9px;
+  background: #00a676;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.hhosLoginSecurityNote strong {
+  display: block;
+  color: #18392f;
+  font-size: 9px;
+}
+
+.hhosLoginSecurityNote p {
+  margin: 5px 0 0;
+  color: #5f6f69;
+  font-size: 8px;
+  line-height: 1.55;
+}
+
+.hhosLoginFooter {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 22px;
+  color: #8a949c;
+  font-size: 7px;
+}
+
+@media (max-width: 1050px) {
+  .hhosLoginPage {
+    grid-template-columns: minmax(390px, 0.92fr) minmax(420px, 1.08fr);
+  }
+
+  .hhosLoginSignalGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hhosLoginSignalGrid article {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 820px) {
+  .hhosLoginPage {
+    display: block;
+  }
+
+  .hhosLoginBrandPanel {
+    display: none;
+  }
+
+  .hhosLoginFormPanel {
+    min-height: 100vh;
+  }
+
+  .hhosLoginMobileBrand {
+    display: flex;
+  }
+}
+
+@media (max-width: 520px) {
+  .hhosLoginFormPanel {
+    align-items: start;
+    padding: 28px 18px;
+  }
+
+  .hhosLoginFormWrap .authForm {
+    padding: 21px;
+    border-radius: 16px;
+  }
+
+  .hhosLoginFooter {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hhosLoginPage *,
+  .hhosLoginPage *::before,
+  .hhosLoginPage *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }
