@@ -1,18 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest } from "next/server";
+import { updateSession } from "@/lib/supabase/proxy";
 
-export function proxy(request: NextRequest) {
-  const demoSession = request.cookies.get("hhos_demo_session")?.value;
-  const isDashboardRoute = request.nextUrl.pathname.startsWith("/dashboard");
-
-  if (isDashboardRoute && demoSession !== "active") {
-    const loginUrl = new URL("/login", request.url);
-    loginUrl.searchParams.set("returnTo", request.nextUrl.pathname);
-    return NextResponse.redirect(loginUrl);
-  }
-
-  return NextResponse.next();
+export async function proxy(request: NextRequest) {
+  return updateSession(request);
 }
 
 export const config = {
-  matcher: ["/dashboard/:path*"]
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)"
+  ]
 };

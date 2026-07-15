@@ -1,17 +1,8 @@
+import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 
 export async function POST() {
-  const response = NextResponse.json({ ok: true });
-
-  response.cookies.set({
-    name: "hhos_demo_session",
-    value: "",
-    httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
-    path: "/",
-    maxAge: 0
-  });
-
-  return response;
+  const supabase = await createClient();
+  await supabase.auth.signOut();
+  return NextResponse.json({ ok: true });
 }
