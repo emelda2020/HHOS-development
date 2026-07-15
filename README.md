@@ -1,38 +1,68 @@
-# HHOS Stage 3 — Patient Data Foundation
+# HHOS Stage 4C — Report Upload and Physician Review
 
-This version connects the website to:
+This package extends the existing HHOS application.
 
-- health_observations
-- device_connections
-- timeline_events
-- care_plan_items
-- consent_history
-- audit_events
+## Patient features
 
-## Upload
+- Private PDF and image upload
+- Medical-report metadata
+- Physician-review request
+- Review-status tracking
+- Secure signed links for private reports
+- Released physician interpretation
+- In-person evaluation recommendation
+- Timeline and audit records
 
-Upload every file and folder in this package to the existing
-`hhos-development` GitHub repository.
+## Physician features
 
-Replace older files when asked.
+- Separate clinician dashboard
+- Verified-clinician access check
+- Assigned-case queue
+- Access only to assigned reports
+- Structured physician review
+- Patient notification when a review is released
+
+## Upload to GitHub
+
+Upload every file and folder inside this package to the existing
+`hhos-development` repository.
+
+Replace older files when GitHub asks.
 
 Commit message:
 
-Add Stage 3 patient data foundation
+```text
+Add report upload and physician review workflow
+```
 
 Vercel should redeploy automatically.
 
-## Test
+## Patient test
 
-1. Sign in with your test account.
-2. Open Overview.
-3. Click Create simulated data.
-4. Confirm that observations, connections, timeline events, and care-plan items appear.
-5. Open Observations.
-6. Add one test observation.
-7. Open Profile & Consent.
-8. Change one privacy choice and save.
-9. Confirm that a consent-history record appears.
-10. Sign out and sign back in.
+1. Sign in with the existing patient test account.
+2. Open Medical Reports.
+3. Upload a fabricated or fully de-identified PDF/image under 10 MB.
+4. Confirm that the review request appears under Physician Reviews.
+5. Confirm that the report appears in Supabase Storage under the private
+   medical-reports bucket.
 
-Do not enter real patient or medical data.
+## Physician test
+
+The clinician portal is available at:
+
+```text
+/clinician
+```
+
+A separate account must be created, promoted to the clinician role, verified,
+and assigned to a case through trusted administrative SQL. Use the separate
+Stage 4C development setup SQL supplied with this package.
+
+Never promote a patient account into a physician account in production.
+Production clinician onboarding requires identity, licence, specialty,
+sanctions, jurisdiction, and indemnity verification.
+
+## Safety
+
+Use test files only. Do not upload real patient reports or identifiable health
+information. This development system is not yet approved for clinical use.

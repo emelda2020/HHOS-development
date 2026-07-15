@@ -170,3 +170,174 @@ input {
   .tableRow { grid-template-columns: 1fr 1fr; }
   .timelineCard { grid-template-columns: 1fr; }
 }
+
+
+.reportsLayout,
+.caseLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, .8fr);
+  gap: 18px;
+}
+
+.reportUploadForm,
+.clinicalReviewForm {
+  align-self: start;
+  display: grid;
+  gap: 14px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.reportUploadForm h2,
+.clinicalReviewForm h2 {
+  margin: 0;
+}
+
+.formHelp {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.reportUploadForm select,
+.reportUploadForm textarea,
+.clinicalReviewForm select,
+.clinicalReviewForm textarea {
+  display: block;
+  width: 100%;
+  margin-top: 7px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: white;
+  resize: vertical;
+}
+
+.reportList,
+.reviewResults {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.reportCard,
+.reviewResultCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #f8fbfa;
+}
+
+.reportCard h3,
+.reviewResultCard h3 {
+  margin: 8px 0 5px;
+  font-size: 13px;
+}
+
+.reportCard p,
+.reportCard small,
+.reviewResultCard small {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.outlineButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--brand);
+  border-radius: 9px;
+  padding: 9px 11px;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.caseFacts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+  margin: 22px 0;
+}
+
+.caseFacts span {
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 13px;
+  background: #f8fbfa;
+}
+
+.caseFacts strong,
+.caseFacts small {
+  display: block;
+}
+
+.caseFacts strong {
+  font-size: 10px;
+}
+
+.caseFacts small {
+  color: var(--muted);
+  font-size: 9px;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+.reviewResultCard {
+  display: block;
+}
+
+.releasedReview {
+  margin-top: 17px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+
+.releasedReview h4 {
+  margin: 15px 0 5px;
+  font-size: 11px;
+}
+
+.releasedReview p {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.urgentNotice {
+  color: #8c3f35 !important;
+  background: #fff0ee;
+  border: 1px solid #f1d0cb;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 700;
+}
+
+.clinicianSidebar {
+  background: #172d3e;
+}
+
+@media (max-width: 900px) {
+  .reportsLayout,
+  .caseLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .reportCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .caseFacts {
+    grid-template-columns: 1fr;
+  }
+}
