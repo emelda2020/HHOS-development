@@ -1,16 +1,15 @@
-# HHOS Stage 4D Role Routing Fix
+# HHOS Stage 5B — Referral and Follow-Up Workflow
 
-Upload these folders and files to the existing GitHub repository, preserving
-their folder locations, and replace the older versions.
+This is a smaller update package containing only the new Stage 5 files.
+
+Upload the folders and files to the matching locations in your existing
+hhos-development repository.
+
+Then follow STAGE5_INTEGRATION.txt for the three small edits required in:
+- components/AppShell.tsx
+- app/clinician/reviews/[id]/page.tsx
+- app/globals.css
 
 Commit message:
 
-Fix patient and clinician dashboard routing
-
-After deployment:
-- patient accounts go to /dashboard
-- clinician accounts go to /clinician
-
-Use two different email accounts. If the original patient account was
-accidentally promoted to clinician, edit and run
-hhos-stage4d-account-recovery.sql in Supabase.
+Add Stage 5 referral and follow-up workflow

@@ -1,0 +1,27 @@
+After uploading these files, make two small edits in your existing project.
+
+1. In components/AppShell.tsx, add this link inside the patient navigation:
+
+<Link href="/dashboard/follow-up">Follow-up & Referrals</Link>
+
+2. In app/clinician/reviews/[id]/page.tsx:
+
+Import:
+import FollowUpPanel from "./FollowUpPanel";
+
+Fetch follow-up actions for the case:
+const { data: followUps } = await supabase
+  .from("follow_up_actions")
+  .select("id, title, instructions, action_status")
+  .eq("review_request_id", id)
+  .order("created_at", { ascending: false });
+
+Then place this after the existing case/review section:
+
+<FollowUpPanel
+  reviewRequestId={request.id}
+  patientUserId={request.patient_user_id}
+  followUps={followUps ?? []}
+/>
+
+Also append the CSS from STAGE5_CSS.txt to app/globals.css.
