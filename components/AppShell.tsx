@@ -22,6 +22,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
           <Link href="/dashboard/observations">Observations</Link>
           <Link href="/dashboard/reports">Medical Reports</Link>
           <Link href="/dashboard/reviews">Physician Reviews</Link>
+          <Link href="/dashboard/follow-up">Follow-up & Referrals</Link>
           <Link href="/dashboard/timeline">Timeline</Link>
           <Link href="/dashboard/connections">Connections</Link>
           <Link href="/dashboard/care-plan">Care Plan</Link>
