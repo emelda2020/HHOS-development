@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { ReactNode } from "react";
 import { useRouter } from "next/navigation";
 
 export default function ClinicianShell({
   children
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   const router = useRouter();
 
@@ -17,18 +18,62 @@ export default function ClinicianShell({
   }
 
   return (
-    <div className="appShell">
-      <aside className="sidebar clinicianSidebar">
-        <Link href="/clinician" className="brand light">
-          HHOS Clinical
+    <div className="hhosClinicianShell">
+      <aside className="hhosClinicianSidebar">
+        <Link href="/clinician" className="hhosClinicianBrand">
+          <span className="hhosClinicianBrandMark">H</span>
+
+          <span>
+            <strong>HHOS Clinical</strong>
+            <small>Professional Workspace</small>
+          </span>
         </Link>
-        <nav>
-          <Link href="/clinician">Assigned cases</Link>
-          <Link href="/dashboard">Patient dashboard</Link>
+
+        <div className="hhosClinicianRole">
+          <span>CLINICIAN PORTAL</span>
+          <strong>Verified Care Workspace</strong>
+        </div>
+
+        <nav className="hhosClinicianNav">
+          <Link href="/clinician">
+            <span>Assigned cases</span>
+          </Link>
+
+          <Link href="/dashboard">
+            <span>Patient dashboard</span>
+          </Link>
         </nav>
-        <button onClick={logout}>Sign out</button>
+
+        <div className="hhosClinicianTrustCard">
+          <span className="hhosClinicianTrustIcon">✓</span>
+          <div>
+            <strong>Clinically governed</strong>
+            <small>
+              Access is controlled by verification, assignment, and patient permissions.
+            </small>
+          </div>
+        </div>
+
+        <button className="hhosClinicianSignout" onClick={logout}>
+          Sign out
+        </button>
       </aside>
-      <main className="content">{children}</main>
+
+      <main className="hhosClinicianContent">
+        <div className="hhosClinicianTopbar">
+          <div>
+            <p>HHOS CLINICAL WORKSPACE</p>
+            <span>Human-reviewed care coordination</span>
+          </div>
+
+          <div className="hhosClinicianSecureStatus">
+            <i />
+            Secure session
+          </div>
+        </div>
+
+        <div className="hhosClinicianPage">{children}</div>
+      </main>
     </div>
   );
 }
