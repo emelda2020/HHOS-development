@@ -3,12 +3,9 @@
 import Link from "next/link";
 import { ReactNode } from "react";
 import { useRouter } from "next/navigation";
+import styles from "./ClinicianDashboard.module.css";
 
-export default function ClinicianShell({
-  children
-}: {
-  children: ReactNode;
-}) {
+export default function ClinicianShell({ children }: { children: ReactNode }) {
   const router = useRouter();
 
   async function logout() {
@@ -18,62 +15,58 @@ export default function ClinicianShell({
   }
 
   return (
-    <div className="hhosClinicianShell">
-      <aside className="hhosClinicianSidebar">
-        <Link href="/clinician" className="hhosClinicianBrand">
-          <span className="hhosClinicianBrandMark">H</span>
-
-          <span>
-            <strong>HHOS Clinical</strong>
-            <small>Professional Workspace</small>
-          </span>
-        </Link>
-
-        <div className="hhosClinicianRole">
-          <span>CLINICIAN PORTAL</span>
-          <strong>Verified Care Workspace</strong>
-        </div>
-
-        <nav className="hhosClinicianNav">
-          <Link href="/clinician">
-            <span>Assigned cases</span>
+    <div className={styles.scope}>
+      <div className="hhosClinicianShell">
+        <aside className="hhosClinicianSidebar">
+          <Link href="/clinician" className="hhosClinicianBrand">
+            <span className="hhosClinicianBrandMark">H</span>
+            <span>
+              <strong>HHOS Clinical</strong>
+              <small>Professional Workspace</small>
+            </span>
           </Link>
 
-          <Link href="/dashboard">
-            <span>Patient dashboard</span>
-          </Link>
-        </nav>
-
-        <div className="hhosClinicianTrustCard">
-          <span className="hhosClinicianTrustIcon">✓</span>
-          <div>
-            <strong>Clinically governed</strong>
-            <small>
-              Access is controlled by verification, assignment, and patient permissions.
-            </small>
-          </div>
-        </div>
-
-        <button className="hhosClinicianSignout" onClick={logout}>
-          Sign out
-        </button>
-      </aside>
-
-      <main className="hhosClinicianContent">
-        <div className="hhosClinicianTopbar">
-          <div>
-            <p>HHOS CLINICAL WORKSPACE</p>
-            <span>Human-reviewed care coordination</span>
+          <div className="hhosClinicianRole">
+            <span>CLINICIAN PORTAL</span>
+            <strong>Verified Care Workspace</strong>
           </div>
 
-          <div className="hhosClinicianSecureStatus">
-            <i />
-            Secure session
-          </div>
-        </div>
+          <nav className="hhosClinicianNav">
+            <Link href="/clinician">Assigned cases</Link>
+            <Link href="/dashboard">Patient dashboard</Link>
+          </nav>
 
-        <div className="hhosClinicianPage">{children}</div>
-      </main>
+          <div className="hhosClinicianTrustCard">
+            <span className="hhosClinicianTrustIcon">✓</span>
+            <div>
+              <strong>Clinically governed</strong>
+              <small>
+                Access is controlled by verification, assignment, and patient permissions.
+              </small>
+            </div>
+          </div>
+
+          <button className="hhosClinicianSignout" onClick={logout}>
+            Sign out
+          </button>
+        </aside>
+
+        <main className="hhosClinicianContent">
+          <div className="hhosClinicianTopbar">
+            <div>
+              <p>HHOS CLINICAL WORKSPACE</p>
+              <span>Human-reviewed care coordination</span>
+            </div>
+
+            <div className="hhosClinicianSecureStatus">
+              <i />
+              Secure session
+            </div>
+          </div>
+
+          <div className="hhosClinicianPage">{children}</div>
+        </main>
+      </div>
     </div>
   );
 }

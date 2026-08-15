@@ -1,0 +1,91 @@
+.scope {
+  min-height: 100vh;
+  background: #f7f9fc;
+}
+
+.scope :global(.hhosPremiumDashboard) {
+  color: #1a1a1a;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.scope :global(.hhosPatientHeader) {
+  min-height: 82px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.scope :global(.hhosHeroCard),
+.scope :global(.hhosSectionCard) {
+  border: 1px solid #e4eaf0;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(15,76,129,.07);
+}
+
+.scope :global(.hhosTopGrid) {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr 1fr 1.15fr;
+  gap: 13px;
+  margin-bottom: 13px;
+}
+
+.scope :global(.hhosHeroCard) {
+  min-height: 215px;
+  padding: 19px;
+}
+
+.scope :global(.hhosMetricGrid) {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.scope :global(.hhosMetricCard) {
+  min-height: 120px;
+  padding: 13px;
+  border: 1px solid #e4eaf0;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.scope :global(.hhosDashboardColumns) {
+  display: grid;
+  grid-template-columns: minmax(0, 2.2fr) minmax(290px, .85fr);
+  gap: 13px;
+  margin-top: 13px;
+}
+
+.scope :global(.hhosSectionCard) { padding: 18px; }
+
+.scope :global(.hhosPrimaryAction) {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 18px;
+  color: #fff;
+  border-radius: 11px;
+  background: #0f4c81;
+  text-decoration: none;
+}
+
+.scope :global(.hhosTextLink),
+.scope :global(.hhosSectionHeading > a) {
+  color: #0f4c81;
+  text-decoration: none;
+}
+
+@media (max-width: 1250px) {
+  .scope :global(.hhosTopGrid) { grid-template-columns: repeat(2, 1fr); }
+  .scope :global(.hhosMetricGrid) { grid-template-columns: repeat(2, 1fr); }
+  .scope :global(.hhosDashboardColumns) { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 850px) {
+  .scope :global(.hhosTopGrid),
+  .scope :global(.hhosMetricGrid) { grid-template-columns: 1fr; }
+}

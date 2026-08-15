@@ -1,0 +1,223 @@
+.scope {
+  min-height: 100vh;
+  background: #f7f9fc;
+}
+
+.scope :global(.hhosClinicianShell) {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr);
+  background: #f7f9fc;
+}
+
+.scope :global(.hhosClinicianSidebar) {
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 18px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(0,184,217,.12), transparent 28%),
+    #0a365d;
+}
+
+.scope :global(.hhosClinicianBrand) {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.scope :global(.hhosClinicianBrandMark) {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: #00a676;
+  font-weight: 800;
+}
+
+.scope :global(.hhosClinicianBrand strong),
+.scope :global(.hhosClinicianBrand small) { display: block; }
+
+.scope :global(.hhosClinicianBrand strong) { font-size: 13px; }
+.scope :global(.hhosClinicianBrand small) {
+  margin-top: 4px;
+  color: rgba(255,255,255,.62);
+  font-size: 8px;
+}
+
+.scope :global(.hhosClinicianRole) {
+  margin-top: 32px;
+  padding: 13px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 11px;
+  background: rgba(255,255,255,.055);
+}
+
+.scope :global(.hhosClinicianRole span) {
+  display: block;
+  color: #74e4cd;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.scope :global(.hhosClinicianRole strong) {
+  display: block;
+  margin-top: 6px;
+  font-size: 9px;
+}
+
+.scope :global(.hhosClinicianNav) {
+  display: grid;
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.scope :global(.hhosClinicianNav a) {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  color: rgba(255,255,255,.78);
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.scope :global(.hhosClinicianNav a:hover) {
+  color: #fff;
+  background: rgba(255,255,255,.09);
+}
+
+.scope :global(.hhosClinicianTrustCard) {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  margin-top: auto;
+  padding: 13px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 11px;
+  background: rgba(255,255,255,.06);
+}
+
+.scope :global(.hhosClinicianTrustIcon) {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  color: #0a365d;
+  border-radius: 8px;
+  background: #6be1c7;
+  font-weight: 800;
+}
+
+.scope :global(.hhosClinicianSignout) {
+  margin-top: 13px;
+  min-height: 38px;
+  color: #fff;
+  border: 0;
+  border-radius: 9px;
+  background: rgba(255,255,255,.08);
+}
+
+.scope :global(.hhosClinicianContent) {
+  min-width: 0;
+  padding: 0 28px 28px;
+}
+
+.scope :global(.hhosClinicianTopbar) {
+  min-height: 74px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  border-bottom: 1px solid #e6ebf0;
+}
+
+.scope :global(.hhosClinicianTopbar p) {
+  margin: 0;
+  color: #0f4c81;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.scope :global(.hhosClinicianTopbar span) {
+  display: block;
+  margin-top: 4px;
+  color: #5f6368;
+  font-size: 8px;
+}
+
+.scope :global(.hhosClinicianSecureStatus) {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 10px;
+  color: #006d51;
+  border-radius: 999px;
+  background: #e9f8f3;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.scope :global(.hhosClinicianPage) {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding-top: 26px;
+}
+
+.scope :global(.hhosClinicianPage h1) {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 30px;
+  letter-spacing: -.04em;
+}
+
+.scope :global(.hhosClinicianPage h1 + p) {
+  margin: 9px 0 22px;
+  color: #5f6368;
+  font-size: 10px;
+}
+
+.scope :global(.hhosClinicianPage article),
+.scope :global(.hhosClinicianPage .dataPanel),
+.scope :global(.hhosClinicianPage .clinicalReviewForm) {
+  margin-bottom: 13px;
+  padding: 18px;
+  border: 1px solid #e2e9ef;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(15,76,129,.055);
+}
+
+.scope :global(.hhosClinicianPage a) {
+  color: #0f4c81;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.scope :global(.hhosClinicianPage button),
+.scope :global(.hhosClinicianPage input[type="submit"]) {
+  min-height: 40px;
+  padding: 0 15px;
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  background: #0f4c81;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  .scope :global(.hhosClinicianShell) { display: block; }
+  .scope :global(.hhosClinicianSidebar) { min-height: auto; position: static; }
+  .scope :global(.hhosClinicianContent) { padding: 0 18px 24px; }
+}
